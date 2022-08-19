@@ -1,3 +1,5 @@
+
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -68,6 +70,23 @@ public class TesteCampoTreinamento {
 		assertEquals("2o grau incompleto", index.getFirstSelectedOption().getText());
 
 			
+			
+		}
+		
+		@Test
+		public void deveSelecionarComboMultiplo( ) {		
+		WebElement element = driver.findElement(By.id("elementosForm:esportes"));
+		Select index = new Select(element);
+		index.selectByVisibleText("Natacao"); 
+		index.selectByVisibleText("Corrida"); 
+		index.selectByVisibleText("Karate"); 
+
+		}
+		@Test
+		public void deveIndetagirComBotao() {		
+		WebElement botao = driver.findElement(By.id("buttonSimple"));
+		botao.click();
+		assertEquals("Obrigado!", botao.getAttribute("value"));
 			
 		}
 
