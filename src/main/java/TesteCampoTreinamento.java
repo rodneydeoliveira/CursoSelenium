@@ -89,6 +89,12 @@ public class TesteCampoTreinamento {
 		assertEquals("Obrigado!", botao.getAttribute("value"));
 			
 		}
+		
+		@Test
+		public void deveIndetagirComLink() {		
+		driver.findElement(By.linkText("Voltar")).click();
+		assertEquals("Voltou!", driver.findElement(By.id("resultado")).getText());
+		}
 
 		@After
 		public void tearDown() {
