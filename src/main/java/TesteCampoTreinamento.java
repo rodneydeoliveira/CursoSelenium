@@ -1,12 +1,15 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
-import org.junit.Assert;
+import org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class TesteCampoTreinamento {
 	private WebDriver driver;
@@ -25,7 +28,7 @@ public class TesteCampoTreinamento {
 		public void teste() {
 		driver.findElement(By.name("elementosForm:nome")).sendKeys("Rodney");
 		driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Oliveira");
-		Assert.assertEquals("Oliveira", driver.findElement(By.id("elementosForm:sobrenome")).getAttribute("value"));
+		assertEquals("Oliveira", driver.findElement(By.id("elementosForm:sobrenome")).getAttribute("value"));
 	
 		}
 		
@@ -33,14 +36,14 @@ public class TesteCampoTreinamento {
 		public void deveInteragirComTextArea( ) {
 			driver.get("file:///C:/Users/NoT/Downloads/campo_treinamento/componentes.html");
 			driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("ola");
-			Assert.assertEquals("ola",driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
+			assertEquals("ola",driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
 
 		}
 		
 		@Test
 		public void deveInteragirComRadioButton( ) {	
 			driver.findElement(By.id("elementosForm:sexo:0")).click();
-			Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:0")).isSelected());
+			assertTrue(driver.findElement(By.id("elementosForm:sexo:0")).isSelected());
 
 			
 			
@@ -49,11 +52,25 @@ public class TesteCampoTreinamento {
 		public void deveInteragirComCheckbox( ) {		
 			driver.findElement(By.id("elementosForm:comidaFavorita:1")).click();
 			driver.findElement(By.id("elementosForm:comidaFavorita:1")).isSelected();
-			Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:1")).isSelected());
+			assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:1")).isSelected());
 
 			
 		}
 		
+		
+		@Test
+		public void deveInteragirComCombo( ) {		
+		WebElement element = driver.findElement(By.id("elementosForm:escolaridade"));
+		Select index = new Select(element);
+		index.selectByVisibleText("2o grau incompleto"); 
+		// index.selectByVisibleText("2o grau incompleto"); seleciona o campo com o valor do texto
+	//	index.selectByIndex("2"); seleciona o campo pelo índice
+		assertEquals("2o grau incompleto", index.getFirstSelectedOption().getText());
+
+			
+			
+		}
+
 		@After
 		public void tearDown() {
 		driver.quit();
