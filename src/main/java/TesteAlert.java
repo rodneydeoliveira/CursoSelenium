@@ -1,9 +1,12 @@
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
+i
 public class TesteAlert {
 	private WebDriver driver;
 	
@@ -19,6 +22,9 @@ public class TesteAlert {
 	@Test
 	public void DeveIntegarirComAlertSmples ( ) {
 		driver.findElement(By.id("alert")).click();
+		Alert alert = driver.switchTo().alert();
+		assertEquals("Alert Simples", alert.getText());
+		alert.accept();
 
 		
 		
