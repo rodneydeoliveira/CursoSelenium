@@ -6,7 +6,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-i
+
 public class TesteAlert {
 	private WebDriver driver;
 	
@@ -20,7 +20,7 @@ public class TesteAlert {
 	}
 	
 	@Test
-	public void DeveIntegarirComAlertSmples ( ) {
+	public void DeveIntegarirComAlertSimples ( ) {
 		driver.findElement(By.id("alert")).click();
 		Alert alert = driver.switchTo().alert();
 		assertEquals("Alert Simples", alert.getText());
@@ -29,7 +29,20 @@ public class TesteAlert {
 		
 		
 	}
+	
+	@Test
+	public void DeveIntegarirComConfirm ( ) {
+		driver.findElement(By.id("confirm")).click();
+		Alert alerta = driver.switchTo().alert();
+		assertEquals("Confirm Simples", alerta.getText());
+		// alert.accept();
+		alerta.dismiss();
+		alerta.accept();
+		
+
+		
+		
 		
 	
-
+	}
 }
