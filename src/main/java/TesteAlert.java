@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
@@ -38,11 +39,20 @@ public class TesteAlert {
 		// alert.accept();
 		alerta.dismiss();
 		alerta.accept();
-		
-
-		
-		
-		
 	
 	}
+	@Test
+	public void DeveIntegarirComAlertPrompt ( ) {
+		driver.findElement(By.id("confirm")).click();
+		Alert alerta = driver.switchTo().alert();
+	}
+	
+	@After
+	
+	public void tearDown () {
+		driver.quit();
+		
+		
+	}
 }
+
