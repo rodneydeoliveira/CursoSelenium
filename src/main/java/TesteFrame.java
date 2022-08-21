@@ -24,10 +24,10 @@ private WebDriver driver;
 	public void DeveInteragirComFrame ( ) {
 		driver.switchTo().frame("frame1");
 		driver.findElement(By.id("frameButton")).click();
-		Alert alerta = driver.switchTo().alert();
+		Alert alerta = driver.switchTo().alert(); // mudando o foco para o alert
 		String alert_text = alerta.getText();
 		alerta.accept();
-		driver.switchTo().defaultContent();
+		driver.switchTo().defaultContent(); // mudando o foco para o driver
 		driver.findElement(By.id("elementosForm:nome")).sendKeys(alert_text);
 	}
 
