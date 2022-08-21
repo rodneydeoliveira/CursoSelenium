@@ -1,3 +1,5 @@
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -25,6 +27,8 @@ private WebDriver driver;
 		driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Oliveira");
 		driver.findElement(By.id("elementosForm:sexo:0")).click();
 		driver.findElement(By.id("elementosForm:comidaFavorita:2")).click();
+		// outra opção new Select(driver.findElement(By.id("elementosForm:escolaridade")))
+		// .selectByVisibleText("mestrado");
 		WebElement escolaridade = driver.findElement(By.id("elementosForm:escolaridade"));
 		Select select = new Select (escolaridade);
 		select.selectByValue("superior");
@@ -33,6 +37,8 @@ private WebDriver driver;
 		esporte.selectByVisibleText("Corrida");
 		esporte.selectByVisibleText("Futebol");
 		driver.findElement(By.id("elementosForm:cadastrar")).click();
+		
+		assertEquals("Cadastrado!", driver.findElement(By.xpath("/html/body/center/div[2]/span")).getText());
 		
 	}
 	

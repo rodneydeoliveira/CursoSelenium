@@ -21,7 +21,7 @@ public class TesteAlert {
 	}
 	
 	@Test
-	public void DeveIntegarirComAlertSimples ( ) {
+	public void DeveInteragirComAlertSimples ( ) {
 		driver.findElement(By.id("alert")).click();
 		Alert alert = driver.switchTo().alert();
 		assertEquals("Alert Simples", alert.getText());
@@ -32,7 +32,7 @@ public class TesteAlert {
 	}
 	
 	@Test
-	public void DeveIntegarirComConfirm ( ) {
+	public void DeveInteragirComConfirm ( ) {
 		driver.findElement(By.id("confirm")).click();
 		Alert alerta = driver.switchTo().alert();
 		assertEquals("Confirm Simples", alerta.getText());
@@ -42,7 +42,7 @@ public class TesteAlert {
 	
 	}
 	@Test
-	public void DeveIntegarirComAlertPrompt ( ) {
+	public void DeveInteragirComAlertPrompt ( ) {
 		driver.findElement(By.id("confirm")).click();
 		Alert alerta = driver.switchTo().alert();
 	}
