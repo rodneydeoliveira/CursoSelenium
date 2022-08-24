@@ -30,5 +30,15 @@ private WebDriver driver;
 		driver.switchTo().defaultContent(); // mudando o foco para o driver
 		driver.findElement(By.id("elementosForm:nome")).sendKeys(alert_text);
 	}
+	@Test
+	public void DeveInteragirComPopup ( ) {
+		driver.findElement(By.id("buttonPopUpEasy")).click();
+		driver.switchTo().window("Popup");
+		driver.findElement(By.tagName("textarea")).sendKeys("Deu certo?");
+		//driver.close();
+		driver.switchTo().window("");
+		driver.findElement(By.tagName("textarea")).sendKeys("Deu certo?");
+	}
 
 }
+
